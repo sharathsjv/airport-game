@@ -5,8 +5,25 @@ using UnityEngine;
 public class QueueItem : MonoBehaviour
 {
     [SerializeField]
-    public GenericNPCBrain ChosenOne;
-    QueueScript ParentQueueScript;
+    public GenericNPCBrain _ChosenOne;
+
+    public GenericNPCBrain ChosenOne
+    {
+        get { return _ChosenOne; }
+        set
+        {
+            _ChosenOne = value;
+            if (_ChosenOne != null && this.isActiveAndEnabled)
+            {
+                _ChosenOne.isQueuing = true;
+                _ChosenOne.TargetTransform = transform;
+                _ChosenOne.CurrentNumberInQueue = this;
+                
+            }
+            
+        }
+    }
+    public QueueScript ParentQueueScript;
     public int queueNumber;
 
     public bool filled;
@@ -17,14 +34,23 @@ public class QueueItem : MonoBehaviour
         filled = false;
         ChosenOne.isQueuing = true;
         ChosenOne.TargetTransform = transform;
+        ChosenOne.CurrentNumberInQueue = this;
     }
 
     void OnEnable()
     {
         ParentQueueScript = GetComponentInParent<QueueScript>();
-        ChosenOne.isQueuing = true;
-        ChosenOne.TargetTransform = transform;
-        ParentQueueScript.QueuedUpPeople.Add(ChosenOne);
+        _ChosenOne.isQueuing = true;
+        _ChosenOne.TargetTransform = transform;
+        _ChosenOne.CurrentNumberInQueue = this;
+        ParentQueueScript.QueuedUpPeople.Add(_ChosenOne);
+    }
+
+    public void ReArrangeQueue()
+    {
+        MoveUpTheQueue();
+
+        ParentQueueScript.CurrentActiveLastItem--;
     }
 
     void OnDisable()
@@ -44,49 +70,73 @@ public class QueueItem : MonoBehaviour
         if (other.tag == "NPC")
         {
 
-            if (other.GetComponent<GenericNPCBrain>() == ChosenOne)
+            if (other.GetComponent<GenericNPCBrain>() == _ChosenOne)
             {
                 other.GetComponent<GenericNPCBrain>().isStationary = true;
-            }
-            if (this == ParentQueueScript.queueItems[ParentQueueScript.CurrentActiveLastItem])
+
+                if (this == ParentQueueScript.queueItems[ParentQueueScript.CurrentActiveLastItem])
             {
-                ParentQueueScript.queueItems[ParentQueueScript.CurrentActiveLastItem + 1].gameObject.SetActive(true);
+                ParentQueueScript.queueItems[queueNumber].gameObject.SetActive(true);
                 ParentQueueScript.CurrentActiveLastItem++;
 
 
 
             }
+            }
             
+
         }
 
         if (other.tag == "Player")
         {
-            if (ChosenOne != null)
+            if (_ChosenOne != null)
             {
-                ReorderQueue();
-                ChosenOne = null;
+                MoveBackInQueue();
+                _ChosenOne = null;
                 ParentQueueScript.queueItems[queueNumber].gameObject.SetActive(true);
                 ParentQueueScript.CurrentActiveLastItem++;
             }
-            
+
 
         }
     }
 
-    void ReorderQueue()
+    void OnTriggerExit(Collider other)
     {
-        GenericNPCBrain temp = ParentQueueScript.queueItems[1].ChosenOne;
+        filled = false;
+    }
+
+    public void MoveBackInQueue()
+    {
+        GenericNPCBrain temp = ParentQueueScript.queueItems[1]._ChosenOne;
         Debug.Log(ParentQueueScript.queueItems.Capacity);
-        for (int i = ParentQueueScript.queueItems.Capacity-1; i >= 0; i--)
+        for (int i = ParentQueueScript.queueItems.Capacity - 1; i >= 0; i--)
         {
             if (i > 0)
             {
-                ParentQueueScript.queueItems[i].ChosenOne = ParentQueueScript.queueItems[i-1].ChosenOne;
+                ParentQueueScript.queueItems[i].ChosenOne = ParentQueueScript.queueItems[i - 1].ChosenOne;
             }
         }
     }
 
-    
+    public void MoveUpTheQueue()
+    {
+
+        //GenericNPCBrain temp = ParentQueueScript.queueItems[1]._ChosenOne;
+        //Debug.Log(ParentQueueScript.queueItems.Capacity);
+        //for (int i = 0; i < ParentQueueScript.queueItems.Capacity - 1; i++)
+        //{
+
+
+        //ParentQueueScript.queueItems[i].ChosenOne = ParentQueueScript.queueItems[i + 1].ChosenOne;
+
+        //}
+
+        ParentQueueScript.queueItems[queueNumber - 2]._ChosenOne = _ChosenOne;
+        
+    }
+
+
 
     void FindNPCToQueue()
     {
@@ -94,13 +144,15 @@ public class QueueItem : MonoBehaviour
         {
             if (a.isQueuing == false)
             {
-                ChosenOne = a;
-                ChosenOne.TargetTransform = transform;
+                _ChosenOne = a;
+                _ChosenOne.TargetTransform = transform;
                 break;
 
             }
-            
+
         }
 
     }
+    
+    
 }

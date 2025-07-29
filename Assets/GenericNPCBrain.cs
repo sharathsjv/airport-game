@@ -10,12 +10,17 @@ public class GenericNPCBrain : MonoBehaviour
 
     [SerializeField]
     bool _isQueuing;
+    [SerializeField]
+    QueueItem _currentNumberInQueue;
 
     [SerializeField]
     bool _isStationary;
 
     [SerializeField]
-    public Transform testTargetTransform, testTargetTransform2, TargetTransform;
+    public Collider _Collider;
+
+    [SerializeField]
+    public Transform testTargetTransform, testTargetTransform2, TargetTransform, UpstairsTransform;
 
     [SerializeField]
     public NPCManager nPCManager;
@@ -24,6 +29,12 @@ public class GenericNPCBrain : MonoBehaviour
     {
         set { _NPC_Master = value; }
         get { return _NPC_Master; }
+    }
+
+    public QueueItem CurrentNumberInQueue
+    {
+        set { _currentNumberInQueue = value; }
+        get { return _currentNumberInQueue; }
     }
 
     public bool isQueuing
@@ -50,6 +61,10 @@ public class GenericNPCBrain : MonoBehaviour
             {
                 _NPC_Master.SetTrigger("QStationary");
             }
+            else
+            {
+                _NPC_Master.ResetTrigger("QStationary");
+            }
         }
 
     }
@@ -69,6 +84,7 @@ public class GenericNPCBrain : MonoBehaviour
     void Awake()
     {
         _NPC_Master = GetComponent<Animator>();
+        _Collider = GetComponent<Collider>();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
