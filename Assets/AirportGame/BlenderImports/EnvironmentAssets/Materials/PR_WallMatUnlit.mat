@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PR_WallMat
+  m_Name: PR_WallMatUnlit
   m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -25,7 +25,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4450AB74:
-        m_Texture: {fileID: 2800000, guid: d06b0baf97cf80f4fa51f64ef5b2d567, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3be59727d24548afbbe2c0c34dc29667, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -89,7 +89,7 @@ Material:
     - Boolean_193028D2: 0
     - Boolean_3F1A8DAB: 0
     - Boolean_43476D73: 1
-    - Boolean_7165A49C: 0
+    - Boolean_7165A49C: 1
     - Boolean_85059BBE: 1
     - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 0

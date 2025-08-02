@@ -56,6 +56,7 @@ public class NpcStates : StateMachineBehaviour
 
         if (states == GenericSNPCtates.Start_queuing)
         {
+            thebrain._Collider.enabled = true;
             thebrain.navMeshAgent.areaMask |= 1 << NavMesh.GetAreaFromName("Line");
             thebrain.navMeshAgent.SetDestination(animator.GetComponent<GenericNPCBrain>().TargetTransform.position);
         }
@@ -70,7 +71,7 @@ public class NpcStates : StateMachineBehaviour
             }
             if (thebrain.CurrentNumberInQueue.queueNumber >1)
             {
-                if (thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber-2] == null)
+                if (thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber-2] == null&& !thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber-2].isPlayerOccupied)
                 {
                     animator.SetTrigger("MoveAhead");
 
@@ -151,7 +152,7 @@ public class NpcStates : StateMachineBehaviour
             if (thebrain.CurrentNumberInQueue.queueNumber > 1)
             {
                 Debug.Log(thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber - 2]);
-                if (thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber - 2].ChosenOne == null)
+                if (thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber - 2].ChosenOne == null && !thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber-2].isPlayerOccupied)
                 {
                     animator.SetTrigger("MoveAhead");
 

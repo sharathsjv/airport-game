@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -32,7 +33,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     private void FixedUpdate()
@@ -41,15 +42,20 @@ public class PlayerController : MonoBehaviour
         toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
         transform.rotation = Quaternion.Lerp(transform.rotation, toTurnAngle, 50 * Time.fixedDeltaTime);
 
-        
+
     }
 
-    public void MovePlayer (InputAction.CallbackContext context)
+    public void MovePlayer(InputAction.CallbackContext context)
     {
         moveinput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
 
         anim.SetFloat("Walking", moveinput.normalized.magnitude);
     }
 
-    
+    public void ResetScene()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
 }

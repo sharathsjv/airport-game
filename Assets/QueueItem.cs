@@ -7,6 +7,8 @@ public class QueueItem : MonoBehaviour
     [SerializeField]
     public GenericNPCBrain _ChosenOne;
 
+    public bool isPlayerOccupied;
+
     public GenericNPCBrain ChosenOne
     {
         get { return _ChosenOne; }
@@ -18,9 +20,9 @@ public class QueueItem : MonoBehaviour
                 _ChosenOne.isQueuing = true;
                 _ChosenOne.TargetTransform = transform;
                 _ChosenOne.CurrentNumberInQueue = this;
-                
+
             }
-            
+
         }
     }
     public QueueScript ParentQueueScript;
@@ -93,6 +95,7 @@ public class QueueItem : MonoBehaviour
             {
                 MoveBackInQueue();
                 _ChosenOne = null;
+                isPlayerOccupied = true;
                 ParentQueueScript.queueItems[queueNumber].gameObject.SetActive(true);
                 ParentQueueScript.CurrentActiveLastItem++;
             }
@@ -101,9 +104,22 @@ public class QueueItem : MonoBehaviour
         }
     }
 
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            isPlayerOccupied = true;
+            filled = true;
+        }
+    }
+
     void OnTriggerExit(Collider other)
     {
-        filled = false;
+
+        if (other.tag == "NPC")   
+            filled = false;
+        if (other.tag == "Player")
+            isPlayerOccupied = false;
     }
 
     public void MoveBackInQueue()
@@ -112,7 +128,7 @@ public class QueueItem : MonoBehaviour
         Debug.Log(ParentQueueScript.queueItems.Capacity);
         for (int i = ParentQueueScript.queueItems.Capacity - 1; i >= 0; i--)
         {
-            if (i > 0)
+            if (i > queueNumber-1)
             {
                 ParentQueueScript.queueItems[i].ChosenOne = ParentQueueScript.queueItems[i - 1].ChosenOne;
             }

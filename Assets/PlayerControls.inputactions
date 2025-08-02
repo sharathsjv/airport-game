@@ -36,7 +36,7 @@
                     "name": "Confirm",
                     "type": "Button",
                     "id": "e2d411d9-6f31-4b0a-bbc1-0d1188696564",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -243,7 +243,7 @@
                 },
                 {
                     "name": "",
-                    "id": "33e8087a-ca85-4f43-98f3-b2325fd43e9c",
+                    "id": "1e8be14c-db39-442e-903a-9b8d03a8db90",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -266,6 +266,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Reset",
+                    "type": "Button",
+                    "id": "559c7670-fef7-43e5-999a-f96bc1269028",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -277,6 +286,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Move",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "99dcee36-d0d3-4488-ac6f-6a7cd484ad4f",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
