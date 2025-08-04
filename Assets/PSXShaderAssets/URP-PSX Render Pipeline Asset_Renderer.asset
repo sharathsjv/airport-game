@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5677514569700259782
+--- !u!114 &-3412977126543418293
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7813741425bf9df4b8f6b5a4f6b1f66f, type: 3}
-  m_Name: Crt
+  m_Script: {fileID: 11500000, guid: df6534dd185a4f18b50629b58de296b6, type: 3}
+  m_Name: PixelationRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
---- !u!114 &-1925210268287778290
+--- !u!114 &-1973812026639509305
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -22,8 +22,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a17da147615463497e4bd9e04f0dce1, type: 3}
-  m_Name: Dithering
+  m_Script: {fileID: 11500000, guid: 3277e3c6431244fb960cbd72870858e2, type: 3}
+  m_Name: FogRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
 --- !u!114 &11400000
@@ -51,12 +51,11 @@ MonoBehaviour:
     probeSamplingDebugTexture: {fileID: 2800000, guid: 24ec0e140fb444a44ab96ee80844e18e, type: 3}
     probeVolumeBlendStatesCS: {fileID: 0}
   m_RendererFeatures:
-  - {fileID: 2606515335583478340}
-  - {fileID: 6965443398785072023}
-  - {fileID: -1925210268287778290}
-  - {fileID: -5677514569700259782}
-  - {fileID: 4342192053489119907}
-  m_RendererFeatureMap: 3a48e961946a35b1a332beaeaa90423c
+  - {fileID: 5531257113362230922}
+  - {fileID: 63686122180184878}
+  - {fileID: -3412977126543418293}
+  - {fileID: -1973812026639509305}
+  m_RendererFeatureMap: 8aee4eeb09f9c24c2e0bacd13042e2004b9cd8d962aba2d0c718c2626b9c9be4
   m_UseNativeRenderPass: 0
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
@@ -78,11 +77,11 @@ MonoBehaviour:
   m_RenderingMode: 0
   m_DepthPrimingMode: 2
   m_CopyDepthMode: 0
-  m_DepthAttachmentFormat: 0
-  m_DepthTextureFormat: 0
+  m_DepthAttachmentFormat: 93
+  m_DepthTextureFormat: 93
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
---- !u!114 &2606515335583478340
+--- !u!114 &63686122180184878
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -91,11 +90,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3277e3c6431244fb960cbd72870858e2, type: 3}
-  m_Name: Fog
+  m_Script: {fileID: 11500000, guid: 7813741425bf9df4b8f6b5a4f6b1f66f, type: 3}
+  m_Name: CRTRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1
---- !u!114 &4342192053489119907
+--- !u!114 &5531257113362230922
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,28 +103,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
-  m_Name: DecalRendererFeature
-  m_EditorClassIdentifier: 
-  m_Active: 1
-  m_Settings:
-    technique: 0
-    maxDrawDistance: 1000
-    decalLayers: 0
-    dBufferSettings:
-      surfaceData: 2
-    screenSpaceSettings:
-      normalBlend: 0
---- !u!114 &6965443398785072023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df6534dd185a4f18b50629b58de296b6, type: 3}
-  m_Name: Pixelation
+  m_Script: {fileID: 11500000, guid: 7a17da147615463497e4bd9e04f0dce1, type: 3}
+  m_Name: DitheringRenderFeature
   m_EditorClassIdentifier: 
   m_Active: 1

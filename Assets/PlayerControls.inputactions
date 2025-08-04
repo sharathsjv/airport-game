@@ -268,6 +268,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Move1",
+                    "type": "PassThrough",
+                    "id": "404051d0-8e6c-4ce9-8c99-836da436ebbe",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Reset",
                     "type": "Button",
                     "id": "559c7670-fef7-43e5-999a-f96bc1269028",
@@ -299,6 +308,61 @@
                     "action": "Reset",
                     "isComposite": false,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "2D Vector",
+                    "id": "113ac419-b80d-4327-a04f-f1f4502493f9",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "811246d5-e34e-4448-a887-a1275a542d21",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "26eed0a6-1549-472b-bb33-c35bd3312dd5",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "8c7c899e-ae00-4c88-bc13-154a09ff05b8",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "6c5ef925-7203-4731-9a6d-9997355c0d89",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Move1",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

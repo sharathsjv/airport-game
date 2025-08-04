@@ -22,6 +22,10 @@ public class PlayerController : MonoBehaviour
     float walkSpeed;
     [SerializeField]
     int crouchSpeed;
+    [SerializeField]
+    CardScriptableObject PassportObject;
+
+
     // Start is called before the first frame update
     void Start()
     {

@@ -5,8 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     GameObject BaggageCounterState;
+    EntryGameplay entryGameplay;
 
     public float susmeter;
+
+    void Awake()
+    {
+        entryGameplay = FindAnyObjectByType<EntryGameplay>();
+        entryGameplay.gameObject.SetActive(false);
+    }
 
     // Start is called before the first frame update
     void Start()

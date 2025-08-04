@@ -7,17 +7,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PR_Elevator
-  m_Shader: {fileID: -6465566751694194690, guid: 2b3b7d0b179748b449e12721ea4fcfa6, type: 3}
+  m_Name: PR_RoofMat
+  m_Shader: {fileID: 4800000, guid: 8d2bb70cbf9db8d4da26e15b26e74248, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _EMISSION
   m_InvalidKeywords: []
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap: {}
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses:
   - MOTIONVECTORS
   m_LockedProperties: 
@@ -25,11 +27,11 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - Texture2D_4450AB74:
-        m_Texture: {fileID: 2800000, guid: d7bcde83cc484cf40ba17022382e3465, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a38ba8ca867f4a45b372913f93978e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 4b7fe2883888dec41bb05d0f12c2e00d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a38ba8ca867f4a45b372913f93978e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -53,7 +55,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 4b7fe2883888dec41bb05d0f12c2e00d, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3a38ba8ca867f4a45b372913f93978e4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -91,21 +93,19 @@ Material:
     - Boolean_43476D73: 1
     - Boolean_7165A49C: 1
     - Boolean_85059BBE: 1
-    - Boolean_8BBF99CD: 0
+    - Boolean_8BBF99CD: 1
     - Boolean_D258FF8E: 0
     - DeformMagnitude: 0
     - Vector1_21C41D02: 256
-    - Vector1_6F288C5B: 0.5
+    - Vector1_6F288C5B: 0
     - Vector1_B2CC132F: 16
     - Vector1_B9994903: 11
     - Vector1_E8746023: 32
+    - _AddPrecomputedVelocity: 0
     - _AlphaClip: 0
     - _AlphaToMask: 0
-    - _Alpha_Clipping: 0.1
-    - _Alpha_Multiplier: 1
     - _Blend: 0
     - _BlendModePreserveSpecular: 1
-    - _BlendOp: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
@@ -126,7 +126,6 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _SampleGI: 0
     - _Shininess: 0
     - _Smoothness: 0.5
     - _SmoothnessSource: 0
@@ -147,7 +146,7 @@ Material:
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
---- !u!114 &3851940918800971912
+--- !u!114 &6316684872686107423
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

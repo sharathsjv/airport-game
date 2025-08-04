@@ -151,7 +151,7 @@ public class NpcStates : StateMachineBehaviour
 
             if (thebrain.CurrentNumberInQueue.queueNumber > 1)
             {
-                Debug.Log(thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber - 2]);
+                
                 if (thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber - 2].ChosenOne == null && !thebrain.CurrentNumberInQueue.ParentQueueScript.queueItems[thebrain.CurrentNumberInQueue.queueNumber-2].isPlayerOccupied)
                 {
                     animator.SetTrigger("MoveAhead");

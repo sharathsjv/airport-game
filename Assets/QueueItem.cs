@@ -98,6 +98,10 @@ public class QueueItem : MonoBehaviour
                 isPlayerOccupied = true;
                 ParentQueueScript.queueItems[queueNumber].gameObject.SetActive(true);
                 ParentQueueScript.CurrentActiveLastItem++;
+                if (queueNumber == 1)
+                {
+                    
+                }
             }
 
 
