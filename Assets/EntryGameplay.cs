@@ -4,7 +4,8 @@ using UnityEngine;
 public class EntryGameplay : MonoBehaviour
 {
     bool isEntering;
-
+    public QuestioningGameScript questioningGameScript;
+    public DialogueManager InitialDialogueManager,PostCorrectDialogue, PostWrongDialogue;
     public bool _isEntering
     {
         get { return isEntering; }
@@ -13,7 +14,7 @@ public class EntryGameplay : MonoBehaviour
             isEntering = value;
             if (value == true)
             {
-                
+
             }
         }
     }
@@ -23,10 +24,13 @@ public class EntryGameplay : MonoBehaviour
     void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
+        questioningGameScript = FindAnyObjectByType<QuestioningGameScript>();
     }
 
     void OnEnable()
     {
+
+        GameManager.instance.entryGameplay = this;
         if (playerController == null)
         {
             playerController = FindFirstObjectByType<PlayerController>();
@@ -36,11 +40,18 @@ public class EntryGameplay : MonoBehaviour
         {
             EntryGameplayMachine = GetComponent<Animator>();
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (questioningGameScript == null)
+        {
+            questioningGameScript = FindAnyObjectByType<QuestioningGameScript>();
+        }
+
+
     }
+    
+    // Update is called once per frame
+        void Update()
+        {
+
+        }
 }

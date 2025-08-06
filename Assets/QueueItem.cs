@@ -100,7 +100,7 @@ public class QueueItem : MonoBehaviour
                 ParentQueueScript.CurrentActiveLastItem++;
                 if (queueNumber == 1)
                 {
-                    
+                    GameManager.instance.entryGameplay.gameObject.SetActive(true);
                 }
             }
 

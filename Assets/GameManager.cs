@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
     GameObject BaggageCounterState;
-    EntryGameplay entryGameplay;
+    public EntryGameplay entryGameplay;
 
     public float susmeter;
 
     void Awake()
     {
+        instance = this;
+
         entryGameplay = FindAnyObjectByType<EntryGameplay>();
         entryGameplay.gameObject.SetActive(false);
     }

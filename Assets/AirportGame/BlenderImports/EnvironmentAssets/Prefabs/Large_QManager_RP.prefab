@@ -887,14 +887,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Shape:
     rid: 2815714073957892097
-  m_Size: {x: 0.1, y: 1.2, z: 0.1}
-  m_Rotation: {x: 0, y: 0, z: 0, w: 1}
-  m_PivotLocation: 1
-  m_PivotPosition: {x: 0, y: 0, z: 0}
+  m_ShapeRotation: {x: 0, y: 0, z: 0, w: 1}
   m_UnmodifiedMeshVersion: 9414
-  m_ShapeBox:
-    m_Center: {x: -0.15931582, y: 0.5805201, z: 0.38619432}
-    m_Extent: {x: 0.05, y: 0.6, z: 0.05}
+  m_Size: {x: 0.1, y: 1.2, z: 0.1}
+  m_LocalCenter: {x: 0, y: 0, z: 0}
   references:
     version: 2
     RefIds:
@@ -921,10 +917,13 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0b6962b5a73899148b5f5300d1589af2, type: 2}
+  - {fileID: 2100000, guid: e081aaad31f180b4ab961f95cf9b0e70, type: 2}
   - {fileID: 2100000, guid: 007b50d3517e1694ea8e5d2357810cd7, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
