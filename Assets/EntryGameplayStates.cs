@@ -8,14 +8,19 @@ public class EntryGameplayStates : StateMachineBehaviour
     {
         QuestionMinigame,
         InitialDialogue,
-        FinalCorrectDialogue,
-        FinalWrongDialogue,
+        SecondDialogu,
+        ThirdDialogu,
+        QuestionMinigame2,
     }
 
+    [SerializeField]
     EntryGameplay parententrygameplayscript;
 
     [SerializeField]
     AllEntryGameplayStates allEntryGameplayStates;
+
+    [SerializeField]
+    float questioningScore;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -27,22 +32,38 @@ public class EntryGameplayStates : StateMachineBehaviour
         if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame)
         {
             ResetTimer(3, 3);
-            parententrygameplayscript.questioningGameScript.gameObject.SetActive(true);
+            if (parententrygameplayscript.questioningGameScript != null)
+            {
+                parententrygameplayscript.questioningGameScript.gameObject.SetActive(true);
+            }
         }
 
-        if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
+        else if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame2)
         {
+            ResetTimer(3, 3);
+            if (parententrygameplayscript.questioningGameScript != null)
+            {
+                parententrygameplayscript.questioningGameScript2.gameObject.SetActive(true);
+            }
+        }
+
+
+        else if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
+        {
+            parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
             parententrygameplayscript.InitialDialogueManager.gameObject.SetActive(true);
         }
-        if (allEntryGameplayStates == AllEntryGameplayStates.FinalCorrectDialogue)
+        else if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
         {
-            parententrygameplayscript.PostCorrectDialogue.gameObject.SetActive(true);
+            parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
+            parententrygameplayscript.SecondDialogue.gameObject.SetActive(true);
         }
-        if (allEntryGameplayStates == AllEntryGameplayStates.FinalWrongDialogue)
+        else if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
         {
-            parententrygameplayscript.PostWrongDialogue.gameObject.SetActive(true);
+            parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
+            parententrygameplayscript.ThirdDialogue.gameObject.SetActive(true);
         }
-        
+
     }
 
     void ResetTimer(float minValue, float maxValue)
@@ -80,7 +101,21 @@ public class EntryGameplayStates : StateMachineBehaviour
     {
         if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame)
         {
+
+            if (parententrygameplayscript.questioningGameScript.correctlyAnswered)
+                parententrygameplayscript.score += questioningScore;
+            else
+                parententrygameplayscript.score -= questioningScore;
             parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame2)
+        {
+
+            if (parententrygameplayscript.questioningGameScript2.correctlyAnswered)
+                parententrygameplayscript.score += questioningScore;
+            else
+                parententrygameplayscript.score -= questioningScore;
+            parententrygameplayscript.questioningGameScript2.gameObject.SetActive(false);
         }
     }
 
