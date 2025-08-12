@@ -1,7 +1,9 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntryGameplayStates : StateMachineBehaviour
 {
+    [SerializeField]
 
     float currentTime, waitTime;
     public enum AllEntryGameplayStates
@@ -21,14 +23,16 @@ public class EntryGameplayStates : StateMachineBehaviour
 
     [SerializeField]
     float questioningScore;
+    [SerializeField]
+    Slider timerUI;
 
     //OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (parententrygameplayscript == null)
-        {
-            parententrygameplayscript = animator.GetComponent<EntryGameplay>();
-        }
+            {
+                parententrygameplayscript = animator.GetComponent<EntryGameplay>();
+            }
         if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame)
         {
             ResetTimer(3, 3);
@@ -84,6 +88,24 @@ public class EntryGameplayStates : StateMachineBehaviour
 
             }
         }
+        if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
+        {
+            if (parententrygameplayscript.SecondDialogue.isCompleted && !parententrygameplayscript.SecondDialogue.gameObject.activeInHierarchy)
+            {
+                animator.SetTrigger("DialogueOver");
+
+
+            }
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
+        {
+            if (parententrygameplayscript.ThirdDialogue.isCompleted && !parententrygameplayscript.ThirdDialogue.gameObject.activeInHierarchy)
+            {
+                animator.SetTrigger("DialogueOver");
+
+
+            }
+        }
         if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame)
         {
             currentTime += Time.deltaTime;
@@ -91,6 +113,19 @@ public class EntryGameplayStates : StateMachineBehaviour
             {
                 animator.SetTrigger("QuestioningDone");
             }
+
+            parententrygameplayscript.questioningGameScript.slider.value = currentTime / waitTime;
+
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame2)
+        {
+            currentTime += Time.deltaTime;
+            if (currentTime > waitTime)
+            {
+                animator.SetTrigger("QuestioningDone");
+            }
+
+            parententrygameplayscript.questioningGameScript2.slider.value = currentTime / waitTime;
 
         }
     }
@@ -116,6 +151,18 @@ public class EntryGameplayStates : StateMachineBehaviour
             else
                 parententrygameplayscript.score -= questioningScore;
             parententrygameplayscript.questioningGameScript2.gameObject.SetActive(false);
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
+        {
+            parententrygameplayscript.InitialDialogueManager.gameObject.SetActive(false);
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
+        {
+            parententrygameplayscript.SecondDialogue.gameObject.SetActive(false);
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
+        {
+            parententrygameplayscript.ThirdDialogue.gameObject.SetActive(false);
         }
     }
 

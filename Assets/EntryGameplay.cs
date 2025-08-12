@@ -29,7 +29,6 @@ public class EntryGameplay : MonoBehaviour
     void Start()
     {
         playerController = FindFirstObjectByType<PlayerController>();
-        questioningGameScript = FindAnyObjectByType<QuestioningGameScript>();
     }
 
     void OnEnable()
