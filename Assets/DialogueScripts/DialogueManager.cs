@@ -46,8 +46,6 @@ public class DialogueManager : MonoBehaviour
     {
         FindAnyObjectByType<PlayerController>().GetComponent<PlayerInput>().enabled = false;
 
-        GameManager.instance.entryGameplay.InitialDialogueManager = this;
-
         isCompleted = false;
 
         playerInput.enabled = true;

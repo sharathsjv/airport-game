@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -45,14 +46,14 @@ public class EntryGameplay : MonoBehaviour
             EntryGameplayMachine = GetComponent<Animator>();
         }
 
-        if (questioningGameScript == null)
-        {
-            questioningGameScript = FindAnyObjectByType<QuestioningGameScript>();
-        }
-
-
     }
 
+    void OnDisable()
+    {
+        InitialDialogueManager.gameObject.SetActive(true);
+        SecondDialogue.gameObject.SetActive(true);
+        ThirdDialogue.gameObject.SetActive(true);
+    }
     // Update is called once per frame
     void Update()
     {

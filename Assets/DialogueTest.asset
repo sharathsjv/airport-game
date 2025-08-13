@@ -13,7 +13,9 @@ MonoBehaviour:
   m_Name: DialogueTest
   m_EditorClassIdentifier: 
   Dialogues:
-  - Hello
-  - Nice to meet you
-  - Can I see some ID?
+  - ID please
+  - ...
+  - .......
+  - ............
+  - What's your name?
   prefab: {fileID: 0}

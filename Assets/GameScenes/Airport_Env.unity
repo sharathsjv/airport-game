@@ -3445,6 +3445,75 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &150532682
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 150532685}
+  - component: {fileID: 150532684}
+  - component: {fileID: 150532683}
+  m_Layer: 0
+  m_Name: GameObject (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &150532683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150532682}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 462ad734685bfd449b37ef5214c21913, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentCamera: {fileID: 0}
+  toActivate: {fileID: 800398327}
+--- !u!65 &150532684
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150532682}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.463799, y: 1, z: 17.083752}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!4 &150532685
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150532682}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -14.63, y: 0, z: -23.83}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 258871809}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &151787306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4801,7 +4870,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.367998, y: 1, z: 7.0997324}
+  m_Size: {x: 16.27805, y: 1, z: 0.71662956}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &203483733
 Transform:
@@ -4812,7 +4881,7 @@ Transform:
   m_GameObject: {fileID: 203483730}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.42, y: 0, z: -29.14}
+  m_LocalPosition: {x: -1.42, y: 0, z: -32.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5493,6 +5562,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 210491771}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 2
   filled: 0
@@ -5511,7 +5581,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -6309,6 +6379,37 @@ MonoBehaviour:
   _queueItems: []
   ChosenOne: {fileID: 0}
   CurrentActiveLastItem: 0
+--- !u!1 &258871808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 258871809}
+  m_Layer: 0
+  m_Name: +++++++++Cameras++++++++++++
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &258871809
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 258871808}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 150532685}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &269554534
 GameObject:
   m_ObjectHideFlags: 0
@@ -7603,6 +7704,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 6371188987627412206}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 1
   filled: 0
@@ -7621,7 +7723,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -16366,6 +16468,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 2
   filled: 0
@@ -16838,6 +16941,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -17358,6 +17462,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -17571,6 +17676,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 1470353154}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -17589,7 +17695,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -19886,6 +19992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 1
   filled: 0
@@ -21879,6 +21986,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 1408065231}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 3
   filled: 0
@@ -21897,7 +22005,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22361,6 +22469,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 944382433}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 6
   filled: 0
@@ -22379,7 +22488,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22718,6 +22827,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 1
   filled: 0
@@ -23454,7 +23564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &800398327
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -28271,6 +28381,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 24687539}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -28289,7 +28400,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -29155,7 +29266,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579914771111060331, guid: 1ffbbd5df4a6e545cbbfc9b52f1e6b1d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.69
+      value: 11.6
       objectReference: {fileID: 0}
     - target: {fileID: 7579914771111060331, guid: 1ffbbd5df4a6e545cbbfc9b52f1e6b1d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -29163,7 +29274,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7579914771111060331, guid: 1ffbbd5df4a6e545cbbfc9b52f1e6b1d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -51.59
+      value: -59.2
       objectReference: {fileID: 0}
     - target: {fileID: 7579914771111060331, guid: 1ffbbd5df4a6e545cbbfc9b52f1e6b1d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -29195,7 +29306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7975448012919099468, guid: 1ffbbd5df4a6e545cbbfc9b52f1e6b1d, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31418,6 +31529,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 3
   filled: 0
@@ -32288,6 +32400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 3
   filled: 0
@@ -32501,6 +32614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -36132,6 +36246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 1468915826}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 5
   filled: 0
@@ -36150,7 +36265,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -38063,6 +38178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 459064582}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 7
   filled: 0
@@ -38081,7 +38197,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -40545,6 +40661,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 631777082}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 693894147}
   ParentQueueScript: {fileID: 0}
   queueNumber: 1
   filled: 0
@@ -40563,7 +40680,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -44308,6 +44425,8 @@ GameObject:
   - component: {fileID: 1485701952}
   - component: {fileID: 1485701954}
   - component: {fileID: 1485701953}
+  - component: {fileID: 1485701956}
+  - component: {fileID: 1485701955}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
@@ -44324,7 +44443,7 @@ Transform:
   m_GameObject: {fileID: 1485701951}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.42, y: 0, z: -43.94}
+  m_LocalPosition: {x: -0.976, y: 0, z: -44.392}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44364,8 +44483,50 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 6.367998, y: 1, z: 7.0997324}
+  m_Size: {x: 6.367998, y: 1, z: 0.45474255}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!65 &1485701955
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485701951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2936082, y: 1, z: 2.8295093}
+  m_Center: {x: 3, y: 0, z: -1.7}
+--- !u!65 &1485701956
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1485701951}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.2936082, y: 1, z: 2.8295093}
+  m_Center: {x: -3, y: 0, z: -1.7}
 --- !u!4 &1486159069 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4b9c1c9d3e5d495499b4cea2402649d2, type: 3}
@@ -47192,6 +47353,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -47210,7 +47372,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -48206,6 +48368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 985715137}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 2
   filled: 0
@@ -48224,7 +48387,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -53365,6 +53528,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 8
   filled: 0
@@ -53383,7 +53547,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -58498,6 +58662,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 2
   filled: 0
@@ -59338,6 +59503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 2
   filled: 0
@@ -60518,6 +60684,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 1109457235}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 3
   filled: 0
@@ -60536,7 +60703,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -62231,6 +62398,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 3
   filled: 0
@@ -65890,6 +66058,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 4
   filled: 0
@@ -65908,7 +66077,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -66142,6 +66311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _ChosenOne: {fileID: 0}
   isPlayerOccupied: 0
+  EndActivationObject: {fileID: 0}
   ParentQueueScript: {fileID: 0}
   queueNumber: 1
   filled: 0
@@ -68720,6 +68890,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 203483733}
   - {fileID: 1485701952}
+  - {fileID: 150532685}
   - {fileID: 963194228}
   - {fileID: 1597380288}
   - {fileID: 592259895}

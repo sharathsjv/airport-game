@@ -43,16 +43,24 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         rb.transform.Translate(0, 0, moveinput.magnitude * Time.fixedDeltaTime * walkSpeed);
-        toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
-        transform.rotation = Quaternion.Lerp(transform.rotation, toTurnAngle, 50 * Time.fixedDeltaTime);
+        //toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
+        if (moveinput != Vector3.zero)
+        {
+            toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
+        }
+        
 
 
     }
 
     public void MovePlayer(InputAction.CallbackContext context)
     {
-        moveinput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
-
+            moveinput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
+        //toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
+            if (context.performed)
+            transform.rotation = Quaternion.Lerp(transform.rotation, toTurnAngle, 50 * Time.fixedDeltaTime);
+        
+        
         anim.SetFloat("Walking", moveinput.normalized.magnitude);
     }
 

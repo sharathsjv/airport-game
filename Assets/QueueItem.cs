@@ -9,6 +9,9 @@ public class QueueItem : MonoBehaviour
 
     public bool isPlayerOccupied;
 
+    [SerializeField]
+    GameObject EndActivationObject;
+
     public GenericNPCBrain ChosenOne
     {
         get { return _ChosenOne; }
@@ -100,7 +103,8 @@ public class QueueItem : MonoBehaviour
                 ParentQueueScript.CurrentActiveLastItem++;
                 if (queueNumber == 1)
                 {
-                    GameManager.instance.entryGameplay.gameObject.SetActive(true);
+                    if (EndActivationObject!=null)
+                        EndActivationObject.SetActive(true);
                 }
             }
 

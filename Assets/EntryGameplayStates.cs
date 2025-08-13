@@ -13,6 +13,7 @@ public class EntryGameplayStates : StateMachineBehaviour
         SecondDialogu,
         ThirdDialogu,
         QuestionMinigame2,
+        EndNode,
     }
 
     [SerializeField]
@@ -30,42 +31,50 @@ public class EntryGameplayStates : StateMachineBehaviour
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         if (parententrygameplayscript == null)
-            {
-                parententrygameplayscript = animator.GetComponent<EntryGameplay>();
-            }
+        {
+            parententrygameplayscript = animator.GetComponent<EntryGameplay>();
+        }
         if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame)
         {
             ResetTimer(3, 3);
             if (parententrygameplayscript.questioningGameScript != null)
             {
+                parententrygameplayscript.questioningGameScript2.gameObject.SetActive(false);
                 parententrygameplayscript.questioningGameScript.gameObject.SetActive(true);
             }
         }
 
-        else if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame2)
+        if (allEntryGameplayStates == AllEntryGameplayStates.QuestionMinigame2)
         {
             ResetTimer(3, 3);
             if (parententrygameplayscript.questioningGameScript != null)
             {
+                parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
                 parententrygameplayscript.questioningGameScript2.gameObject.SetActive(true);
             }
         }
 
 
-        else if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
+        if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
         {
             parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
             parententrygameplayscript.InitialDialogueManager.gameObject.SetActive(true);
+            parententrygameplayscript.SecondDialogue.gameObject.SetActive(false);
+            parententrygameplayscript.ThirdDialogue.gameObject.SetActive(false);
         }
-        else if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
+        if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
         {
             parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
             parententrygameplayscript.SecondDialogue.gameObject.SetActive(true);
         }
-        else if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
+        if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
         {
             parententrygameplayscript.questioningGameScript.gameObject.SetActive(false);
             parententrygameplayscript.ThirdDialogue.gameObject.SetActive(true);
+        }
+        if (allEntryGameplayStates == AllEntryGameplayStates.EndNode)
+        {
+            parententrygameplayscript.gameObject.SetActive(false);
         }
 
     }
@@ -154,15 +163,15 @@ public class EntryGameplayStates : StateMachineBehaviour
         }
         if (allEntryGameplayStates == AllEntryGameplayStates.InitialDialogue)
         {
-            parententrygameplayscript.InitialDialogueManager.gameObject.SetActive(false);
+            //parententrygameplayscript.InitialDialogueManager.gameObject.SetActive(false);
         }
         if (allEntryGameplayStates == AllEntryGameplayStates.SecondDialogu)
         {
-            parententrygameplayscript.SecondDialogue.gameObject.SetActive(false);
+            //parententrygameplayscript.SecondDialogue.gameObject.SetActive(false);
         }
         if (allEntryGameplayStates == AllEntryGameplayStates.ThirdDialogu)
         {
-            parententrygameplayscript.ThirdDialogue.gameObject.SetActive(false);
+            //parententrygameplayscript.ThirdDialogue.gameObject.SetActive(false);
         }
     }
 

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DialogueTest 1
   m_EditorClassIdentifier: 
   Dialogues:
-  - Are you sure?
-  - This may be wrong
+  - Mmm?
+  - You sure don't sound like that name!
   prefab: {fileID: 0}

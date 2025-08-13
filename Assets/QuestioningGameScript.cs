@@ -9,7 +9,6 @@ public class QuestioningGameScript : MonoBehaviour
     public bool correctlyAnswered;
     void OnEnable()
     {
-        GameManager.instance.entryGameplay.questioningGameScript = this;
         if (eventSystem == null)
         {
             eventSystem = FindAnyObjectByType<EventSystem>();
